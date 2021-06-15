@@ -71,7 +71,7 @@ the variable `org-unique-id-prefix'."
                     (progn
                       (require 'message)
                       (concat "@" (message-make-fqdn))))))
-    (concat prefix (car (split-string (concat etime postfix) "-")))))
+    (concat prefix "-" (car (split-string (concat etime postfix) "-")))))
 
 ;;;###autoload
 (defun org-unique-id-get (&optional pom create prefix)
@@ -90,11 +90,11 @@ CUSTOM_ID of the entry is returned."
                      (replace-regexp-in-string
                       "[_-][_-]+" "-"
                       (replace-regexp-in-string
-                       (rx (or alpha num "-" "_"))
+                       "[^[:alpha:][:digit:]-_]"
                        "-"
                        (if (string= orgpath "")
                            (org-get-heading t t t t)
-                         (concat orgpath "_" (org-get-heading t t t t)))))))
+                         (concat orgpath "-" (org-get-heading t t t t)))))))
            (id (org-entry-get nil "CUSTOM_ID")))
       (cond
        ((and id
@@ -105,7 +105,6 @@ CUSTOM_ID of the entry is returned."
                (org-id-add-location id
                                     (buffer-file-name (buffer-base-buffer)))
                id)))))
-
 
 ;;;###autoload
 (defun org-unique-id ()
