@@ -1,0 +1,67 @@
+#+title: org-unique-id
+#+author: Lucien Cartier-Tilet
+#+email: lucien@phundrak.com
+
+* Introduction
+~org-unique-id~ is a utility package for org users that are tired
+dealing with random org IDs for their headers that change on each org
+to HTML export (and other kinds of exports). This package creates
+meaningful custom IDs for org headers that won’t change unless the
+user modifies them manually.
+
+* Table of Contents                                                :TOC_2_gh:
+- [[#introduction][Introduction]]
+- [[#installation][Installation]]
+- [[#contributing][Contributing]]
+- [[#license][License]]
+
+* Installation
+This package can be installed like any other simple package. Your
+first option is to download ~org-unique-id~ or clone this package in
+your ~load-path~ and add the following to your configuration:
+#+begin_src emacs-lisp
+  (require 'org-unique-id)
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook
+                        (lambda ()
+                          (when (and (eq major-mode       'org-mode)
+                                     (eq buffer-read-only nil))
+                            (org-unique-id))))))
+#+end_src
+
+You can also use a package manager such as Quelpa or Straight in order
+to load automatically your package. In my case, I prefer the latter
+with its ~use-package~ integration:
+#+begin_src emacs-lisp
+  (use-package org-unique-id
+    :require t
+    :after org
+    :straight (org-unique-id :type git
+                             :host github
+                             :repo "Phundrak/org-unique-id")
+    :init
+    (add-hook 'org-mode-hook
+       (lambda ()
+         (add-hook 'before-save-hook
+                   (lambda ()
+                     (when (and (eq major-mode       'org-mode)
+                                (eq buffer-read-only nil))
+                       (org-unique-id)))))))
+
+#+end_src
+
+I also add ~:build t~ to my straight recipe to ensure my package is compiled.
+
+If you know how to handle this with a pure Straight recipe, or with a
+Quelpa recipe, don’t hesitate to submit a PR to add it to this README!
+
+Also, DAMN that’s one hell of a hook, if you know anything simpler
+than this, please submit it!
+
+* Contributing
+See [[file:CONTRIBUTING.org]].
+
+* License
+~org-unique-id~ is available under the GNU GPL-3.0 license. You can find
+the full text in [[file:LICENSE.md][LICENSE.md]].

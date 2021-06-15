@@ -2,7 +2,7 @@
 
 ;; Author: Lucien Cartier-Tilet <lucien@phundrak.com>
 ;; Maintainer: Lucien Cartier-Tilet <lucien@phundrak.com>
-;; Version: 0.1
+;; Version: 0.2
 ;; Package-Requires: ((emacs "25.1") (org "9.3"))
 ;; Homepage: https://labs.phundrak.com/phundrak/org-unique-id
 ;; Keywords: convenience
@@ -73,7 +73,8 @@ the variable `org-unique-id-prefix'."
                       (concat "@" (message-make-fqdn))))))
     (concat prefix (car (split-string (concat etime postfix) "-")))))
 
-(defun org-unique-id--get (&optional pom create prefix)
+;;;###autoload
+(defun org-unique-id-get (&optional pom create prefix)
   "Get the CUSTOM_ID property of the entry at point-or-marker POM.
 
 If POM is nil, refer to the entry at point. If the entry does not
@@ -106,7 +107,8 @@ CUSTOM_ID of the entry is returned."
                id)))))
 
 
-(defun org-unique-id-add-ids-to-headline-in-file ()
+;;;###autoload
+(defun org-unique-id ()
   "Add a CUSTOM_ID to all headers missing one.
 
 Only adds ids if the `auto-id' option is set to t in the file
@@ -117,7 +119,7 @@ somewhere. ie, #+OPTIONS: auto-id:t"
     (goto-char (point-min))
     (let ((case-fold-search t))
       (when (re-search-forward "^#\\+OPTIONS:.*auto-id:t" (point-max) t)
-        (org-map-entries (lambda () (org-unique-id--get (point) t)))))))
+        (org-map-entries (lambda () (org-unique-id-get (point) t)))))))
 
 (provide 'org-unique-id)
 
