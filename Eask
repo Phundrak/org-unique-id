@@ -1,5 +1,5 @@
 (package "org-unique-id"
-         "0.3.0"
+         "0.3.1"
          "Create unique IDs for org headers")
 
 (website-url "https://labs.phundrak.com/phundrak/org-unique-id")
