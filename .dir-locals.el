@@ -2,4 +2,5 @@
 ;;; For more information see (info "(emacs) Directory Variables")
 
 ((emacs-lisp-mode . ((sentence-end-double-space . t)
-                     (indent-tabs-mode . nil))))
+                     (indent-tabs-mode . nil)))
+ (makefile-mode . ((indent-tabs-mode . t))))
