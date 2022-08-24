@@ -128,13 +128,13 @@ This function executes `org-unique-id' when the buffer’s major
 mode is `org-mode', when the buffer is not read-only, and if
 \\='auto-id:t\\' is found in an #+OPTIONS line."
   (interactive)
-  (let ((case-fold-search t))
-    (when (and (eq major-mode 'org-mode)
-               (eq buffer-read-only nil)
-               (save-excursion
-                 (let ((case-fold-search t))
-                   (re-search-forward "^#\\+OPTIONS:.*auto-id:t" (point-max) t))))
-      (org-unique-id))))
+  (when (and (eq major-mode 'org-mode)
+             (eq buffer-read-only nil)
+             (save-excursion
+               (goto-char (point-min))
+               (let ((case-fold-search t))
+                 (re-search-forward "^#\\+OPTIONS:.*auto-id:t" (point-max) t))))
+    (org-unique-id)))
 
 (provide 'org-unique-id)
 
