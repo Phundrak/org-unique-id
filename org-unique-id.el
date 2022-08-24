@@ -32,7 +32,7 @@
 ;;
 ;; It will generate a unique ID for each headers in an org file based
 ;; on the headers’ name plus a random short string in order to be sure
-;; to make it unique. This ID will be inserted in each header’s
+;; to make it unique.  This ID will be inserted in each header’s
 ;; properties as a custom ID.
 ;;
 ;; [1] https://blog.phundrak.com/better-custom-ids-orgmode/
@@ -79,11 +79,11 @@ the variable `org-unique-id-prefix'."
 (defun org-unique-id-get (&optional pom create prefix)
   "Get the CUSTOM_ID property of the entry at point-or-marker POM.
 
-If POM is nil, refer to the entry at point. If the entry does not
-have an CUSTOM_ID, the function returns nil. However, when CREATE
-is non nil, create a CUSTOM_ID if none is present already. PREFIX
-will be passed through to `org-unique-id--new'. In any case, the
-CUSTOM_ID of the entry is returned."
+If POM is nil, refer to the entry at point.  If the entry does
+not have an CUSTOM_ID, the function returns nil.  However, when
+CREATE is non nil, create a CUSTOM_ID if none is present already.
+PREFIX will be passed through to `org-unique-id--new'.  In any
+case, the CUSTOM_ID of the entry is returned."
   (interactive)
   (org-with-point-at pom
     (let* ((orgpath (mapconcat #'identity (org-get-outline-path) "-"))
@@ -113,7 +113,7 @@ CUSTOM_ID of the entry is returned."
   "Add a CUSTOM_ID to all headers missing one.
 
 Only adds ids if the `auto-id' option is set to t in the file
-somewhere. ie, #+OPTIONS: auto-id:t"
+somewhere, i.e. #+OPTIONS: auto-id:t"
   (interactive)
   (save-excursion
     (widen)
