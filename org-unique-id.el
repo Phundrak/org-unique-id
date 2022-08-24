@@ -41,9 +41,11 @@
 ;;; Code:
 
 (require 'org-id)
+(require 'message)
 
 (defgroup org-unique-id ()
   "Create unique IDs for org headers."
+  :group 'org
   :prefix "org-unique-id"
   :link '(url-link :tag "Gitea" "https://labs.phundrak.com/phundrak/org-unique-id")
   :link '(url-link :tag "Github" "https://github.com/Phundrak/org-unique-id"))
