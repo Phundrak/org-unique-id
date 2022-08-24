@@ -86,16 +86,17 @@ case, the CUSTOM_ID of the entry is returned."
   (interactive)
   (org-with-point-at pom
     (let* ((orgpath (mapconcat #'identity (org-get-outline-path) "-"))
-           (heading (replace-regexp-in-string
-                     "[_-]+$" ""
-                     (replace-regexp-in-string
-                      "[_-][_-]+" "-"
-                      (replace-regexp-in-string
-                       "[^[:alpha:][:digit:]-_]"
-                       "-"
-                       (if (string= orgpath "")
-                           (org-get-heading t t t t)
-                         (concat orgpath "-" (org-get-heading t t t t)))))))
+           ;; Get heading text
+           (heading (if (string-empty-p orgpath)
+                        (org-get-heading t t t t)
+                      (concat orgpath "-" (org-get-heading t t t t))))
+           ;; Remove non-alphanum, hyphens, and underscore
+           (heading (replace-regexp-in-string "[^[:alnum:]\\-_]" ""  heading))
+           ;; Replace repeated dashes or underscores with a single dash
+           (heading (replace-regexp-in-string "[_-]+"            "-" heading))
+           ;; Remove leading and trailing dashes and underscores
+           (heading (replace-regexp-in-string "^[_-]+\\|[_-]+$"  ""  heading))
+
            (id (org-entry-get nil "CUSTOM_ID")))
       (cond
        ((and id
