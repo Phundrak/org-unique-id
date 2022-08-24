@@ -1,6 +1,7 @@
 #+title: org-unique-id
 #+author: Lucien Cartier-Tilet
 #+email: lucien@phundrak.com
+[[https://github.com/Phundrak/org-unique-id/actions/workflows/workflow.yml][file:https://github.com/Phundrak/org-unique-id/actions/workflows/workflow.yml/badge.svg]]
 
 * Introduction
 ~org-unique-id~ is a utility package for org users that are tired
