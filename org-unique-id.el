@@ -69,10 +69,9 @@ the variable `org-unique-id-prefix'."
                      prefix
                    org-unique-id-prefix))
          (etime (org-reverse-string (org-id-time-to-b36)))
-         (postfix (when org-id-include-domain
-                    (progn
-                      (require 'message)
-                      (concat "@" (message-make-fqdn))))))
+         (postfix (if org-id-include-domain
+                      (concat "@" (message-make-fqdn))
+                    "")))
     (concat prefix "-" (car (split-string (concat etime postfix) "-")))))
 
 ;;;###autoload
