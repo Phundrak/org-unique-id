@@ -2,7 +2,7 @@
 
 ;; Author: Lucien Cartier-Tilet <lucien@phundrak.com>
 ;; Maintainer: Lucien Cartier-Tilet <lucien@phundrak.com>
-;; Version: 0.2
+;; Version: 0.3.0
 ;; Package-Requires: ((emacs "25.1") (org "9.3"))
 ;; Homepage: https://labs.phundrak.com/phundrak/org-unique-id
 ;; Keywords: convenience
