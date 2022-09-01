@@ -112,8 +112,8 @@ case, the CUSTOM_ID of the entry is returned."
 (defun org-unique-id ()
   "Add a CUSTOM_ID to all headers missing one.
 
-Only adds ids if the `auto-id' option is set to t in the file
-somewhere, i.e. #+OPTIONS: auto-id:t"
+Only adds ids if the \\='unique-id\\=' option is set to t in the
+file somewhere, i.e. #+OPTIONS: unique-id:t"
   (interactive)
   (save-excursion
     (widen)
@@ -126,14 +126,14 @@ somewhere, i.e. #+OPTIONS: auto-id:t"
 
 This function executes `org-unique-id' when the buffer’s major
 mode is `org-mode', when the buffer is not read-only, and if
-\\='auto-id:t\\' is found in an #+OPTIONS line."
+\\='unique-id:t\\' is found in an #+OPTIONS line."
   (interactive)
   (when (and (eq major-mode 'org-mode)
              (not buffer-read-only)
              (save-excursion
                (goto-char (point-min))
                (let ((case-fold-search t))
-                 (re-search-forward "^#\\+OPTIONS:.*auto-id:t" (point-max) t))))
+                 (re-search-forward "^#\\+OPTIONS:.*unique-id:t" (point-max) t))))
     (org-unique-id)))
 
 (provide 'org-unique-id)
