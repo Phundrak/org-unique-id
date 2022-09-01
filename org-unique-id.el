@@ -129,7 +129,7 @@ mode is `org-mode', when the buffer is not read-only, and if
 \\='auto-id:t\\' is found in an #+OPTIONS line."
   (interactive)
   (when (and (eq major-mode 'org-mode)
-             (eq buffer-read-only nil)
+             (not buffer-read-only)
              (save-excursion
                (goto-char (point-min))
                (let ((case-fold-search t))
