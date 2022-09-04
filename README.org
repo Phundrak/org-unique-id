@@ -2,6 +2,8 @@
 #+author: Lucien Cartier-Tilet
 #+email: lucien@phundrak.com
 [[https://github.com/Phundrak/org-unique-id/actions/workflows/workflow.yml][file:https://github.com/Phundrak/org-unique-id/actions/workflows/workflow.yml/badge.svg]]
+[[https://melpa.org/#/org-unique-id][file:https://melpa.org/packages/org-unique-id-badge.svg]]
+[[https://stable.melpa.org/#/org-unique-id][file:https://stable.melpa.org/packages/org-unique-id-badge.svg]]
 
 * Introduction
 ~org-unique-id~ is a utility package for org users that are tired
