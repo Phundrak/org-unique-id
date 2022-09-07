@@ -32,7 +32,7 @@ information as possible:
 As you are collecting these pieces of information, try to come up with
 a short and clear issue title –it should describe quickly your issue
 without being too vague (e.g. avoid stuff like “error when opening
-Eshell” or “doesn’t work”).
+org-mode” or “doesn’t work”).
 
 ** Submitting New Code
 If you are submitting new code through a pull request, make sure of
@@ -75,10 +75,10 @@ clear as to what it is meant to do. Its description should:
 ** Finding Something To Do
 Not sure where to begin? Take a look at the list of open issues,
 especially the ones with one of the following labels:
-- [[https://github.com/Phundrak/eshell-info-banner.el/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22][/good first issue/]] :: These issues indicate easy to fix issues and
+- [[https://github.com/Phundrak/org-unique-id/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22][/good first issue/]] :: These issues indicate easy to fix issues and
   easy to implement enhancements. If you are a beginner or if you want
   to familiarize yourself with the package, look for these issues.
-- [[https://github.com/Phundrak/eshell-info-banner.el/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+sort%3Aupdated-desc][/help wanted/]] :: These issues might require some more work than /good
+- [[https://github.com/Phundrak/org-unique-id/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+sort%3Aupdated-desc][/help wanted/]] :: These issues might require some more work than /good
   first issue/ issues and might be a bit more interesting.
 If you want to work on an open issue, leave a comment saying
 so. However, you can directly submit a pull request if you are simply
