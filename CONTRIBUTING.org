@@ -11,6 +11,7 @@ hard to follow them.
 - [[#how-can-i-contribute][How Can I Contribute?]]
   - [[#submitting-bugs-and-errors][Submitting Bugs and Errors]]
   - [[#submitting-new-code][Submitting New Code]]
+    - [[#ensuring-the-quality-of-your-code][Ensuring the quality of your code]]
     - [[#git-commit-messages][Git Commit Messages]]
     - [[#describing-the-pull-request][Describing the Pull Request]]
   - [[#finding-something-to-do][Finding Something To Do]]
@@ -45,6 +46,15 @@ the following:
   to the list of dependencies in the file’s headers
 - And obviously, your code works (I include that because I myself
   sometimes push commits that don’t work)
+
+*** Ensuring the quality of your code
+Although a CI is already in place on the Github repository, you are
+encouraged to make sure yourself everything runs correctly.
+
+This package uses [[https://github.com/emacs-eask/eask][Eask]] to run its linters. Once it is installed, you
+can go to your preferred terminal and run ~make ci~. If everything goes
+well, you’re ready to submit your code to the repository. If not,
+please fix whatever Eask complains about first.
 
 *** Git Commit Messages
 Your commits should also follow [[https://github.com/syl20bnr/spacemacs/blob/develop/CONTRIBUTING.org#commit-messages][Spacemacs’ guidelines]] on this matter,
